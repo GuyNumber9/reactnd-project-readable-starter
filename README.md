@@ -19,10 +19,10 @@ To get started developing right away:
 
 This app was build using the following dependencies:
 
-    - [React](https://reactjs.org/)
-    - [React router](https://github.com/ReactTraining/react-router)
-    - [Redux](https://redux.js.org/)
-    - [Redux-Thunk](https://github.com/reduxjs/redux-thunk)
-    - [Momentjs](https://momentjs.com)
-    - [Bootstrap](https://getbootstrap.com)
-    - [uuid](https://github.com/kelektiv/node-uuid)
+   * [React](https://reactjs.org/)
+   * [React router](https://github.com/ReactTraining/react-router)
+   * [Redux](https://redux.js.org/)
+   * [Redux-Thunk](https://github.com/reduxjs/redux-thunk)
+   * [Momentjs](https://momentjs.com)
+   * [Bootstrap](https://getbootstrap.com)
+   * [uuid](https://github.com/kelektiv/node-uuid)
