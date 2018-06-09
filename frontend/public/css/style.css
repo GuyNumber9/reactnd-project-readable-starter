@@ -1,0 +1,20 @@
+header {
+    margin-bottom: 15px;
+}
+
+.cap-first-letter{
+    text-transform: capitalize;
+}
+
+.post-voter {
+    width: 9em;
+    margin-bottom: 1em;
+}
+
+.comment-voter {
+    width: 11em;
+}
+
+.comment {
+    min-width: 85%;
+}

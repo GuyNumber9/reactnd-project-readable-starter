@@ -1,8 +1,6 @@
-# Readable API Server
+# Readable React App
 
-This is the starter project for the final assessment project for Udacity's Redux course where you will build a content and comment web app. Users will be able to post content to predefined categories, comment on their posts and other users' posts, and vote on posts and comments. Users will also be able to edit and delete posts and comments.
-
-This repository includes the code for the backend API Server that you'll use to develop and interact with the front-end portion of the project.
+This is application is a project by [Udacity's React & Redux](https://www.udacity.com/course/react-redux--cx44).the Readable is a content and comment web app. Users will be able to post content to predefined categories, comment on their posts and other users' posts, and vote on posts and comments. Users will also be able to edit and delete posts and comments.
 
 ## Start Developing
 
@@ -17,6 +15,14 @@ To get started developing right away:
     - `cd frontend`
     - `npm start`
 
-## API Server
+## Dependencies
 
-Information about the API server and how to use it can be found in its [README file](api-server/README.md).
+This app was build using the following dependencies:
+
+    - [React](https://reactjs.org/)
+    - [React router](https://github.com/ReactTraining/react-router)
+    - [Redux](https://redux.js.org/)
+    - [Redux-Thunk](https://github.com/reduxjs/redux-thunk)
+    - [Momentjs](https://momentjs.com)
+    - [Bootstrap](https://getbootstrap.com)
+    - [uuid](https://github.com/kelektiv/node-uuid)

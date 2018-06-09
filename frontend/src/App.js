@@ -1,21 +1,27 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { connect } from 'react-redux';
+import PostList from './components/postList';
+import { setBreadcrumbs } from './actions/index';
 
-class App extends Component {
+
+
+class App extends React.Component {
+  componentWillMount(){
+    this.props.setBreadcrumbs([{label: "Home"}]);
+  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+        <div className="App">
+          <PostList />
+        </div>
     );
   }
 }
 
-export default App;
+function mapDispatchToProps(dispatch){
+  return {
+    setBreadcrumbs: (breadcrumbs) => dispatch(setBreadcrumbs(breadcrumbs))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(App);
