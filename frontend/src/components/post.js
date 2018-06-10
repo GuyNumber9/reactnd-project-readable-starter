@@ -42,6 +42,10 @@ class PostComponent extends React.Component {
         this.props.history.push(`/form/${this.props.post.id}`);
     }
 
+    componentDidMount() {
+        this.props.history.push('/error404');
+    }
+
     render() {
         return (<div>
             <div className="card">

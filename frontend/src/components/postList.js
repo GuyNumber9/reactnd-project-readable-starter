@@ -11,16 +11,19 @@ class PostList extends React.Component {
         this.categoryFilter = this.categoryFilter.bind(this);
         this.categoryChangeHandler = this.categoryChangeHandler.bind(this);
     }
+
     componentDidMount() {
         // fetch posts if not yet loaded
         this.props.posts.length || this.props.getPosts();
     }
+
     categoryFilter(post) {
         if (!this.props.category) {
             return true;
         }
         return post.category === this.props.category;
     }
+    
     categoryChangeHandler(event){
         this.props.onSortbyChange(event.target.value);
     }

@@ -18,19 +18,22 @@ class PostView extends React.Component {
     upVote(){
         this.props.vote(this.props.post.id, 'upVote');
     }
+
     downVote(){
         this.props.vote(this.props.post.id, 'downVote');
     }
 
     componentWillMount(){
-        this.setBreadcrumbs();
+        this._mounted = false;
     }
 
     componentDidUpdate(){
+        this._mounted = true;
         this.setBreadcrumbs();
     }
 
     componentDidMount() {
+        this.setBreadcrumbs();
         if (this.props.match.params.id) {
             this.props.fetchPost(this.props.match.params.id);
         }
@@ -52,12 +55,13 @@ class PostView extends React.Component {
         });
         this.props.setBreadcrumbs(breadcrumbs);
     }
+
     render() {
         return <div>
             <div className="mb-4">
-            <Post upVote={this.upVote} downVote={this.downVote} post={this.props.post} />
+                <Post upVote={this.upVote} downVote={this.downVote} post={this.props.post} />
             </div>
-            <Comments parentId={this.props.match.params.id} />
+            {this._mounted & <Comments parentId={this.props.match.params.id} />}
         </div>;
     }
 }

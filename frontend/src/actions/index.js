@@ -16,8 +16,10 @@ export function fetchPost(id){
                 'Authorization': 'whatever-you-want'
             }
         }).then((resp) => {
+            console.log('resp', resp);
             return resp.json();
         }).then((data) => {
+            console.log('data', data);
             dispatch({
                 type: FETCHED_POST,
                 post: data

@@ -7,6 +7,7 @@ class Navbar extends React.Component {
     componentDidMount() {
         this.props.fetchCategories();
     }
+    
     render() {
         return (<nav className="navbar navbar-expand-sm navbar-light bg-light">
             <span className="navbar-brand mb-0 h1">Readable</span>

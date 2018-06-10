@@ -12,6 +12,7 @@ import MainView from './App';
 import PostView from './views/postView';
 import CategoryView from './views/categoryView';
 import FormView from './views/formView';
+import Error404 from './views/error404View';
 import registerServiceWorker from './registerServiceWorker';
 
 const store = createStore(mainReducer, applyMiddleware(thunk));
@@ -26,6 +27,7 @@ ReactDOM.render(<BrowserRouter>
                 <Breadcrumbs />
                 <Switch>
                     <Route exact path="/" component={MainView} />
+                    <Route exact path="/error404" component={Error404} />
                     <Route path="/form/:id?" component={FormView} />
                     <Route path="/:category/:id" component={PostView} />
                     <Route exact path="/:category/" component={CategoryView} />

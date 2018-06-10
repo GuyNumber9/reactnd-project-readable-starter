@@ -1,23 +1,14 @@
 import React from 'react';
 
 class VoteComponent extends React.Component {
-    constructor(){
-        super();
 
-        this.state = {
-            voteCount: 0
-        };
+    state = {
+        voteCount: 0
+    };
 
-        
-    }
-    componentWillMount(){
-        this.setState({
-            voteCount: this.props.voteCount || 0
-        })
-    }
     componentWillReceiveProps(props){
         this.setState({
-            voteCount: props.voteCount
+            voteCount: props.voteCount || 0
         })
     }
     

@@ -21,6 +21,7 @@ class PostFormComponent extends React.Component {
         this.onSubmit = this.onSubmit.bind(this);
         this.handleFormResponse = this.handleFormResponse.bind(this);
     }
+
     onSubmit(event){
         event.preventDefault();
 
@@ -76,10 +77,12 @@ class PostFormComponent extends React.Component {
             author: data.author
         });
     }
+
     onPostRequestFail(data){
         console.log('onPostRequestFail()');
         console.log(data);
     }
+
     componentDidMount(){
         if(this.props.postId){
             fetch(`http://localhost:3001/posts/${this.props.postId}`, {
@@ -94,21 +97,25 @@ class PostFormComponent extends React.Component {
             }).then(this.onPostRequestPass).catch(this.onPostRequestFail);
         }
     }
+
     onTitleChange(event){
         this.setState({
             "title": event.target.value
         });
     }
+
     onCategoryChange(event){
         this.setState({
             "category": event.target.value
         });
     }
+
     onBodyChange(event){
         this.setState({
             "body": event.target.value
         });
     }
+
     render(){
         return (<form onSubmit={this.onSubmit}>
             <div className="form-group">
@@ -130,7 +137,7 @@ class PostFormComponent extends React.Component {
             <div className="form-group">
                 <input type="submit" className="btn btn-primary" value="Submit" />
             </div>
-            </form>)
+            </form>);
     }
 }
 

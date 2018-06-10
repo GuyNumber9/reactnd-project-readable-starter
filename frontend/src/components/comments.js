@@ -105,6 +105,7 @@ class CommentsComponent extends React.Component {
     upVote(id) {
         this.props.vote(id, 'upVote', this.voteCallback);
     }
+
     downVote(id) {
         this.props.vote(id, 'downVote', this.voteCallback);
     }
@@ -129,6 +130,7 @@ class CommentsComponent extends React.Component {
                 return first.timestamp > second.timestamp;
         }
     }
+
     getCommentsResponse(data) {
         if (data.error) {
             console.error('Error',data);
@@ -140,12 +142,14 @@ class CommentsComponent extends React.Component {
             });
         }
     }
+    
     handleAddComment(comment) {
         this.setState({
             ...this.state,
             comments: [...this.state.comments, comment]
         })
     }
+
     componentDidMount() {
         this.fetchComments();
     }
