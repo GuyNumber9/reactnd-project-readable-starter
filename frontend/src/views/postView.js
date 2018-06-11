@@ -23,19 +23,18 @@ class PostView extends React.Component {
         this.props.vote(this.props.post.id, 'downVote');
     }
 
-    componentWillMount(){
-        this._mounted = false;
-    }
-
     componentDidUpdate(){
-        this._mounted = true;
         this.setBreadcrumbs();
     }
 
     componentDidMount() {
         this.setBreadcrumbs();
         if (this.props.match.params.id) {
-            this.props.fetchPost(this.props.match.params.id);
+            this.props.fetchPost(this.props.match.params.id, (data) =>{
+                if(!data.id){
+                    this.props.history.push('/error404');
+                }
+            });
         }
     }
     
@@ -61,7 +60,7 @@ class PostView extends React.Component {
             <div className="mb-4">
                 <Post upVote={this.upVote} downVote={this.downVote} post={this.props.post} />
             </div>
-            {this._mounted & <Comments parentId={this.props.match.params.id} />}
+            <Comments parentId={this.props.match.params.id} />
         </div>;
     }
 }
@@ -75,7 +74,7 @@ function mapStateToProps(state){
 function mapDispatchToProps(dispatch){
     return {
         setBreadcrumbs: (breadcrumbs) => dispatch(Actions.setBreadcrumbs(breadcrumbs)),
-        fetchPost: (id) => dispatch(fetchPost(id)),
+        fetchPost: (id, callback) => dispatch(fetchPost(id, callback)),
         vote: (id, type) => {
             return dispatch(vote(id, type));
         }

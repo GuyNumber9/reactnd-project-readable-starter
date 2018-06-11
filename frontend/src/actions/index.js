@@ -6,7 +6,7 @@ export const RECEIVE_POSTS = 'RECEIVE_POSTS';
 export const ON_SORTBY_CHANGE = 'ON_SORTBY_CHANGE';
 export const SET_BREADCRUMBS = 'SET_BREADCRUMBS';
 
-export function fetchPost(id){
+export function fetchPost(id, callback){
     return (dispatch) => {
         dispatch({
             type: FETCHING_POST
@@ -16,10 +16,11 @@ export function fetchPost(id){
                 'Authorization': 'whatever-you-want'
             }
         }).then((resp) => {
-            console.log('resp', resp);
             return resp.json();
         }).then((data) => {
-            console.log('data', data);
+            if(callback){
+                callback(data);
+            }
             dispatch({
                 type: FETCHED_POST,
                 post: data
@@ -66,7 +67,7 @@ export function vote(id, vote, type, optionalCallback){
     }
 }
 
-export function fetchPosts(category){
+export function fetchPosts(category, callback){
     return (dispatch) => {
         dispatch({
             type: FETCHING_POSTS

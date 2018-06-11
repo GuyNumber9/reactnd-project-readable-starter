@@ -8,7 +8,7 @@ import { mainReducer } from './reducers';
 import './index.css';
 import Navbar from './components/navbar';
 import Breadcrumbs from './components/breadcrumbs';
-import MainView from './App';
+import MainView from './views/mainView';
 import PostView from './views/postView';
 import CategoryView from './views/categoryView';
 import FormView from './views/formView';
@@ -31,6 +31,7 @@ ReactDOM.render(<BrowserRouter>
                     <Route path="/form/:id?" component={FormView} />
                     <Route path="/:category/:id" component={PostView} />
                     <Route exact path="/:category/" component={CategoryView} />
+                    <Route component={Error404} />
                 </Switch>   
             </div>
         </div>

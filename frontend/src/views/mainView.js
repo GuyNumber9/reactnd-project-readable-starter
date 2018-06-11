@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PostList from './components/postList';
-import { setBreadcrumbs } from './actions/index';
+import PostList from '../components/postList';
+import { setBreadcrumbs } from '../actions/index';
 
 
 

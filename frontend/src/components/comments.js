@@ -20,6 +20,7 @@ class CommentsComponent extends React.Component {
             },
             deleteComment: ''
         };
+        this._mounted = false;
         this.onSortbyChange = this.onSortbyChange.bind(this);
         this.sortMethod = this.sortMethod.bind(this);
         this.getCommentsResponse = this.getCommentsResponse.bind(this);
@@ -135,7 +136,7 @@ class CommentsComponent extends React.Component {
         if (data.error) {
             console.error('Error',data);
         }
-        else {
+        else if(this._mounted){
             this.setState({
                 ...this.state,
                 comments: data
@@ -150,8 +151,17 @@ class CommentsComponent extends React.Component {
         })
     }
 
+    componentWillMount(){
+        this._mounted = false;
+    }
+
     componentDidMount() {
+        this._mounted = true;
         this.fetchComments();
+    }
+
+    componentWillUnmount(){
+        this._mounted = false;
     }
 
     fetchComments() {
@@ -167,7 +177,6 @@ class CommentsComponent extends React.Component {
 
     render() {
         return <div>
-
             <div className="list-group">
                 <div className="list-group-item">
                     <div className="d-flex w-100 mb-1 justify-content-between">
